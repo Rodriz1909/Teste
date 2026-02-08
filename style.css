@@ -1,0 +1,180 @@
+/* 1. Reset Geral */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top, #E91E63, #2A0E1A 65%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 75%;
+  max-width: 1200px;
+}
+
+.wheel-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.wheel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-arrow {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  z-index: 100;
+}
+
+.container {
+  width: 420px;
+  height: 420px;
+  border-radius: 90%;
+  border: 8px solid #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 2.5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.container div {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: bottom left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  overflow: visible; 
+}
+
+/* 5. Ajuste dos Textos Verticais */
+.container div span {
+  display: block;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  
+  transform: rotate(22.5deg); 
+  
+  /* Ajuste de posição */
+  margin-top: 13px; 
+  margin-left: -100px; 
+
+  font-size: 12px;
+  font-family:Arial;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.one   { background:#E91E63; transform: rotate(0deg);   z-index: 8; }
+.two   { background:#F48FB1; transform: rotate(45deg);  z-index: 7; }
+.three { background:#E91E63; transform: rotate(90deg);  z-index: 6; }
+.four  { background:#F48FB1; transform: rotate(135deg); z-index: 5; }
+.five  { background:#E91E63; transform: rotate(180deg); z-index: 4; }
+.six   { background:#F48FB1; transform: rotate(225deg); z-index: 3; }
+.seven { background:#E91E63; transform: rotate(270deg); z-index: 2; }
+.eight { background:#F48FB1; transform: rotate(315deg); z-index: 1; }
+#spin {
+  position: absolute;
+  z-index: 110;
+  background: #eee;
+  border: 5px solid #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000000;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.final-text {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.final-text.show {
+  opacity: 1;
+}
+
+.message-section {
+  border-style: 10px;
+    flex: 1;
+  max-width: 500px;
+  opacity: 0; 
+  transform: translateX(50px);
+  transition: opacity 1s ease, transform 2s ease;
+  pointer-events: none; 
+}
+
+
+.message-section.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}S
+
+.letter {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  color: #F48FB1;
+  margin-bottom: 15px;
+}
+
+.letter p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.highlight {
+  color: #F48FB1;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+  }
+}
